@@ -1,0 +1,4 @@
+/home/nono/Desktop/snow/base/test/build/CMakeFiles/rebuild_cache.dir
+/home/nono/Desktop/snow/base/test/build/CMakeFiles/edit_cache.dir
+/home/nono/Desktop/snow/base/test/build/CMakeFiles/base.dir
+/home/nono/Desktop/snow/base/test/build/CMakeFiles/log_test.dir

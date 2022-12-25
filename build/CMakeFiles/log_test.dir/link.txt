@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/log_test.dir/test/log_test.o  -o ../bin/log_test -Wl,-rpath,/home/nono/Desktop/snow/lib ../lib/libsnow.so 

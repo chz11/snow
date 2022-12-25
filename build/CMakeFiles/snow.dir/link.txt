@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libsnow.so -o ../lib/libsnow.so CMakeFiles/snow.dir/snow/log.o CMakeFiles/snow.dir/snow/Times.o 

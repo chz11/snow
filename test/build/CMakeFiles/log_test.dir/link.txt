@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/log_test.dir/log_test.o  -o $(PROJECT_SOURCE_DIR)/bin/log_test -Wl,-rpath,/home/nono/Desktop/snow/base/test/build/$(PROJECT_SOURCE_DIR)/lib $(PROJECT_SOURCE_DIR)/lib/libbase.so 
