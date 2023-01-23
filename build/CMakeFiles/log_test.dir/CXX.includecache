@@ -6,13 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/nono/Desktop/snow/snow/Times.h
+/home/czh/Desktop/snows/snow/snow/Singleton.h
+log.h
+/home/czh/Desktop/snows/snow/snow/log.h
+
+/home/czh/Desktop/snows/snow/snow/Times.h
 iostream
 -
 time.h
 -
 
-/home/nono/Desktop/snow/snow/log.h
+/home/czh/Desktop/snows/snow/snow/log.h
 string.h
 -
 stdint.h
@@ -35,12 +39,18 @@ sys/syscall.h
 -
 sys/types.h
 -
+stdarg.h
+-
+map
+-
 Times.h
-/home/nono/Desktop/snow/snow/Times.h
+/home/czh/Desktop/snows/snow/snow/Times.h
 
-/home/nono/Desktop/snow/test/log_test.cpp
+/home/czh/Desktop/snows/snow/test/log_test.cpp
 ../snow/log.h
-/home/nono/Desktop/snow/snow/log.h
+/home/czh/Desktop/snows/snow/snow/log.h
 ../snow/Times.h
-/home/nono/Desktop/snow/snow/Times.h
+/home/czh/Desktop/snows/snow/snow/Times.h
+../snow/Singleton.h
+/home/czh/Desktop/snows/snow/snow/Singleton.h
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/nono/Desktop/snow
+# Install script for directory: /home/czh/Desktop/snows/snow
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/nono/Desktop/snow/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/czh/Desktop/snows/snow/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

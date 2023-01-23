@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nono/Desktop/snow/snow/Times.cpp" "/home/nono/Desktop/snow/build/CMakeFiles/snow.dir/snow/Times.o"
-  "/home/nono/Desktop/snow/snow/log.cpp" "/home/nono/Desktop/snow/build/CMakeFiles/snow.dir/snow/log.o"
+  "/home/czh/Desktop/snows/snow/snow/Times.cpp" "/home/czh/Desktop/snows/snow/build/CMakeFiles/snow.dir/snow/Times.o"
+  "/home/czh/Desktop/snows/snow/snow/log.cpp" "/home/czh/Desktop/snows/snow/build/CMakeFiles/snow.dir/snow/log.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

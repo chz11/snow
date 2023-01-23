@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nono/Desktop/snow/test/log_test.cpp" "/home/nono/Desktop/snow/build/CMakeFiles/log_test.dir/test/log_test.o"
+  "/home/czh/Desktop/snows/snow/test/log_test.cpp" "/home/czh/Desktop/snows/snow/build/CMakeFiles/log_test.dir/test/log_test.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -14,7 +14,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/nono/Desktop/snow/build/CMakeFiles/snow.dir/DependInfo.cmake"
+  "/home/czh/Desktop/snows/snow/build/CMakeFiles/snow.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

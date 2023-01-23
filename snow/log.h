@@ -11,6 +11,8 @@
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <sys/types.h>
+#include <stdarg.h>
+#include <map>
 #include "Times.h"
 
 #define LOG_OUTPUT(level,logger) \
@@ -22,6 +24,15 @@
 #define ERROR(logger) LOG_OUTPUT(base::LogLevel::ERROR, logger)
 #define FATAL(logger) LOG_OUTPUT(base::LogLevel::FATAL, logger)
 
+#define LOG_OUTPUT_FMT(level,logger, fmt, ...) \
+            if(logger->getLevel() <= level) \
+                base::LogEventWrap(std::make_shared<base::LogEvent>(level,logger,syscall(SYS_gettid),0,__FILE__,__LINE__,base::Times::now(),0)).GetLogEvent()->fomart(fmt, __VA_ARGS__)
+#define TRACE_FMT(logger, fmt, ...) LOG_OUTPUT_FMT(base::LogLevel::DEBUG, logger, fmt, __VA_ARGS__)
+#define INFO_FMT(logger, fmt, ...)  LOG_OUTPUT_FMT(base::LogLevel::INFO, logger, fmt, __VA_ARGS__)
+#define WARN_FMT(logger, fmt, ...)  LOG_OUTPUT_FMT(base::LogLevel::WARN, logger, fmt, __VA_ARGS__)
+#define ERROR_FMT(logger, fmt, ...) LOG_OUTPUT_FMT(base::LogLevel::ERROR, logger, fmt, __VA_ARGS__)
+#define FATAL_FMT(logger, fmt, ...) LOG_OUTPUT_FMT(base::LogLevel::FATAL, logger, fmt, __VA_ARGS__)
+        
 namespace base
 {
 class Logger;
@@ -81,7 +92,7 @@ public:
 
     std::string getContent() const
     {
-        return ss.str();
+        return m_ss.str();
     }
 
     std::shared_ptr<Logger> getLogger()
@@ -96,7 +107,27 @@ public:
 
     std::stringstream& getss()
     {
-        return ss;
+        return m_ss;
+    }
+
+    void fomart(const char* fmt, va_list al)
+    {
+        char* buf = nullptr;
+        int len = vasprintf(&buf, fmt, al);
+        if(len != -1)
+        {
+            m_ss << std::string(buf, len);
+            delete buf;
+            buf = nullptr;
+        }
+    }
+
+    void fomart(const char* fmt, ...)
+    {
+        va_list al;
+        va_start(al, fmt);
+        fomart(fmt, al);
+        va_end(al);
     }
 
 private:
@@ -106,7 +137,7 @@ private:
     uint32_t m_line;              //行号
     Times m_time;           //时间戳
     uint32_t m_elapse;            //时间间隔
-    std::stringstream ss;
+    std::stringstream m_ss;
     std::shared_ptr<Logger> m_logger;
     LogLevel::Level m_level;
 };
@@ -119,6 +150,10 @@ public:
     ~LogEventWrap();
 
     std::stringstream& getss();
+    LogEvent::LogEventPtr GetLogEvent ()
+    {
+        return m_logEventPtr;
+    }
 
 private:
     LogEvent::LogEventPtr m_logEventPtr;
@@ -213,6 +248,23 @@ public:
 private:
     std::string m_fileName;
     std::ofstream m_fileStream;
+};
+
+class LogManager
+{
+public:
+    typedef std::shared_ptr<LogManager> LogManagerPtr;
+    LogManager();
+    void Init();
+    Logger::LoggerPtr GetLogger(const std::string& name);
+
+    Logger::LoggerPtr GetLogRoot()
+    {
+        return m_root;
+    }
+private:
+    std::map<std::string, Logger::LoggerPtr> m_loggerMap;
+    Logger::LoggerPtr m_root;
 };
 }
 #endif

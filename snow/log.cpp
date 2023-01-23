@@ -415,4 +415,26 @@ namespace base
         m_fileStream.open(m_fileName);
         return !!m_fileStream;
     } 
+
+    LogManager::LogManager()
+    {
+        m_root.reset(new Logger());
+        m_root->AddLogAppender(std::make_shared<StdOutLogAppender>());
+    }
+    void LogManager::Init()
+    {
+    
+    }
+    Logger::LoggerPtr LogManager::GetLogger(const std::string& name)
+    {
+        auto it = m_loggerMap.find(name);
+        if(it == m_loggerMap.end())
+        {
+            return m_root;
+        }
+        else
+        {
+            return it->second;
+        }
+    }
 }
